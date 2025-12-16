@@ -1,35 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { useState } from "react";
+import Replicate from "replicate";
+import { AppProvider } from "./context/appContext";
+import Playlist from "./components/playlist";
+
+const replicate = new Replicate({
+  auth: import.meta.env.VITE_REPLICATE_API_TOKEN,
+});
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [moodText, setText] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Mood submitted:", moodText);
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+      <AppProvider>
+        <h1>Playlist Guru AI</h1>
         <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+          Hey there! 🎵 Welcome to Playlist Guru AI – your new go-to buddy for
+          building the perfect playlists. Whether you need pump-up jams for the
+          gym, road trip bangers, or some chill vibes to unwind, I've got you
+          covered. Just tell me what you're in the mood for, and I'll whip up
+          something amazing. Let's make some magic happen! 🎶
         </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
+        <div>
+          <p>So, what kind of playlist are ya vibin' with today?</p>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              value={moodText}
+              placeholder="Enter your mood here"
+              onChange={(e) => setText(e.target.value)}
+            />
+
+            <div>
+              <button type="submit">Create Playlist</button>
+            </div>
+          </form>
+        </div>
+
+        <div id="playlist-section" className="playlist-section" hidden={false}>
+          <Playlist />
+        </div>
+      </AppProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
