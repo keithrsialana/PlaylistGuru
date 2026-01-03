@@ -3,19 +3,14 @@ import { useState } from "react";
 import Replicate from "replicate";
 import { AppProvider } from "./context/appContext";
 import Playlist from "./components/playlist";
+import MoodForm from "./components/MoodForm";
+
 
 const replicate = new Replicate({
   auth: import.meta.env.VITE_REPLICATE_API_TOKEN,
 });
 
 function App() {
-  const [moodText, setText] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Mood submitted:", moodText);
-  };
-
   return (
     <>
       <AppProvider>
@@ -28,21 +23,7 @@ function App() {
           something amazing. Let's make some magic happen! 🎶
         </p>
 
-        <div>
-          <p>So, what kind of playlist are ya vibin' with today?</p>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              value={moodText}
-              placeholder="Enter your mood here"
-              onChange={(e) => setText(e.target.value)}
-            />
-
-            <div>
-              <button type="submit">Create Playlist</button>
-            </div>
-          </form>
-        </div>
+        <MoodForm />
 
         <div id="playlist-section" className="playlist-section" hidden={false}>
           <Playlist />
