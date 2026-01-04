@@ -1,16 +1,37 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# My Portfolio Website
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+## Table of Contents
+- [Description](#Description)
+- [Installation](#Installation-Instructions)
+- [Usage](#Usage-Instructions)
+- [Credits](#Credits)
+- [License](#License)
+- [Features](#Features)
+- [Questions](#Questions)
+## Description
+This is a smaller version of the other project that I worked on using AI and Spotify to create a mood playlist using the user's mood input. This one only uses AI API calls to OpenRouter API using my own API KEY. This project doesn't include making your own account to use the application.
+## Installation Instructions
+1. Use `npm i` to install all dependencies
+## Usage Instructions
+### Running the project locally
+#### Requirement
+You need to create and generate your own OpenRouter API Key and create a `.env ` file on the base directory. The key must be under the name `VITE_OPENROUTER_API_TOKEN`
+Example (in .env file):
+```
+VITE_OPENROUTER_API_TOKEN=insertkeyhere
+```
+1. Use `npm run build` in the terminal to compile the project
+2. Use `npm run preview` to run the project
+3. On your web browser, navigate to `http://localhost:4173` to access the website
+### Accessing the deployed website
+To be added
+## Credits
+Keith Sialana
+## License
+MIT
+## Features
+- Application works with Meta's Llama 3.3-70b instruct API through the OpenRouter API
+- Creates a playlist of about 50 randomized songs based on the user's mood input
+## Questions
+- [GitHub](https://github.com/keithrsialana)
+- [Email](mailto:keith.sialana@hotmail.com)
