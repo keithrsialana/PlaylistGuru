@@ -1,14 +1,8 @@
 import "./App.css";
-import { useState } from "react";
-import Replicate from "replicate";
 import { AppProvider } from "./context/appContext";
 import Playlist from "./components/playlist";
 import MoodForm from "./components/MoodForm";
 
-
-const replicate = new Replicate({
-  auth: import.meta.env.VITE_REPLICATE_API_TOKEN,
-});
 
 function App() {
   return (
