@@ -27,7 +27,7 @@ export default function Playlist() {
         input:
           "Your task is to create a playlist based on the following mood: " +
           playlistMood +
-          ". Respond with a random list of 50 song titles and their respective artists that fit this mood, separated by semicolons. Format the response as 'Song Title - Artist Name'. Do not include any additional text or explanations.",
+          ". Respond with a random list of 49 song titles and their respective artists that fit this mood, separated by semicolons. Format the response as 'Song Title - Artist Name'. Do not include any additional text or explanations.",
       });
       setPlaylist("Generating playlist...");
       const text = await result.getText();
@@ -46,7 +46,7 @@ export default function Playlist() {
     <div className="playlist">
       <h1>
         {playlistMood != "None"
-          ? `Your ` + playlistMood + ` playlist:`
+          ? `Your '` + playlistMood + `' playlist:`
           : "Set your playlist!"}
       </h1>
       <div>
