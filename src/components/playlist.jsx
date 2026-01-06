@@ -55,7 +55,7 @@ export default function Playlist() {
       <div id="songsText">
         {playlistList.length < 1 ? "Create your playlist!":
         (
-          <ol>
+          <ol className="playlistList">
             {playlistList.map((song, index) => (
               <li key={index}>{song}</li>
             ))}
