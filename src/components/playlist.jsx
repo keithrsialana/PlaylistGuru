@@ -16,7 +16,7 @@ export default function Playlist() {
   async function getPlaylist() {
     try {
       const openRouter = new OpenRouter({
-        apiKey: process.env.OPENROUTER_API_TOKEN,
+        apiKey: import.meta.env.VITE_OPENROUTER_API_TOKEN,
         defaultHeaders: {
           "X-Title": "Playlist Guru AI",
         },
