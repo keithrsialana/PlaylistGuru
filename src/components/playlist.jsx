@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../context/appContext";
-import { OpenRouter } from "@openrouter/sdk";
 
 export default function Playlist() {
   const { playlistMood } = useContext(AppContext);
@@ -15,27 +14,22 @@ export default function Playlist() {
 
   async function getPlaylist() {
     try {
-      const openRouter = new OpenRouter({
-        apiKey: process.env.OPENROUTER_API_TOKEN,
-        defaultHeaders: {
-          "X-Title": "Playlist Guru AI",
-        },
-      });
-
-      const result = await openRouter.callModel({
-        model: "meta-llama/llama-3.3-70b-instruct:free",
-        input:
-          "Your task is to create a playlist based on the following mood: " +
-          playlistMood +
-          ". Respond with a random list of 49 song titles and their respective artists that fit this mood, separated by semicolons. Format the response as 'Song Title - Artist Name'. Do not include any additional text or explanations.",
-      });
       setPlaylist("Generating playlist...");
-      const text = await result.getText();
 
-      // Convert semicolon-separated string into an array
-      let playlistList = text.split(";").map((song) => song.trim());
+      const res = await fetch("/.netlify/functions/getPlaylist", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ mood: playlistMood }),
+      });
 
-      setPlaylist(playlistList); // Update the state with the generated playlist
+      if (!res.ok) {
+        throw new Error("Request failed");
+      }
+
+      const data = await res.json();
+      setPlaylist(data.playlist);
     } catch (error) {
       console.error("Error generating playlist:", error);
       setPlaylist("Error generating playlist. Please try again.");

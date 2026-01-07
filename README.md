@@ -15,10 +15,10 @@ This is a smaller version of the other project that I worked on using AI and Spo
 ## Usage Instructions
 ### Running the project locally
 #### Requirement
-You need to create and generate your own OpenRouter API Key and create a `.env ` file on the base directory. The key must be under the name `VITE_OPENROUTER_API_TOKEN`
+You need to create and generate your own OpenRouter API Key and create a `.env ` file on the base directory. The key must be under the name `OPENROUTER_API_TOKEN`
 Example (in .env file):
 ```
-VITE_OPENROUTER_API_TOKEN=insertkeyhere
+OPENROUTER_API_TOKEN=insertkeyhere
 ```
 1. Use `npm run build` in the terminal to compile the project
 2. Use `npm run preview` to run the project
