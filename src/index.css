@@ -35,26 +35,50 @@ body {
   margin-left: 1em;
   padding: .8em;
   border-radius: 20px;
+  border-width: 0;
+}
+.formButton:hover {
+  background-color: #098d25;
 }
 
 .formInput {
-  font-size: 1.5em;
+  font-size: 1.2em;
   text-align: center;
   border-radius: 20px;
+  padding: .5em;
+  border-width: 0;
 }
 
 .playlistList{
   margin: auto;
-  max-width: 80%;
+  max-width: fit-content;
 }
 
 .playlistList li {
   font-family:Arial, Helvetica, sans-serif;
   font-size: large;
   font-weight: bold;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .playlistList li:nth-child(odd) {
   background-color: #ffffff1e;
 
+}
+
+@media screen and (max-width: 600px) {
+  .playlistForm {
+    flex-direction: column;
+  }
+  .formButton {
+    margin-top: 1em;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .appContainer {
+    max-width: 70vw;
+    margin: auto;
+  }
 }

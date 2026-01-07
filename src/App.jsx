@@ -16,7 +16,11 @@ function App() {
             you covered. Just tell me what you're in the mood for, and I'll whip
             up something amazing. Let's make some magic happen! 🎶
           </p>
-
+          
+          <h2>Notice</h2>
+          <p>There was a plan to integrate creating a playlist using Spotify, but as of 2024, Spotify has disabled any use of their API unless you're a business that makes money and has a lot of streams, so I'm sorry to the users. You're going to just have to copy and paste this list somewhere else and manually make the playlist on Spotify 😔</p>
+          <br />
+          <br />
           <MoodForm />
 
           <div hidden={false}>

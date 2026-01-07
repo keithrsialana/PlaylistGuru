@@ -14,8 +14,9 @@ export default function Playlist() {
 
   async function getPlaylist() {
     try {
-      setPlaylist("Generating playlist...");
+      document.getElementById("loadingText").hidden = false;
 
+      
       const res = await fetch("/.netlify/functions/getPlaylist", {
         method: "POST",
         headers: {
@@ -23,16 +24,17 @@ export default function Playlist() {
         },
         body: JSON.stringify({ mood: playlistMood }),
       });
-
+      
       if (!res.ok) {
         throw new Error("Request failed");
       }
-
+      
       const data = await res.json();
       setPlaylist(data.playlist);
+      document.getElementById("loadingText").hidden = true;
     } catch (error) {
+      document.getElementById("loadingText").hidden = true;
       console.error("Error generating playlist:", error);
-
     }
   }
 
@@ -54,8 +56,6 @@ export default function Playlist() {
           </ol>
         )}
       </div>
-      <h2>Notice</h2>
-      <p>There was a plan to integrate creating a playlist using Spotify, but as of 2024, Spotify has disabled any use of their API unless you're a business that makes money and has a lot of streams, so I'm sorry to the users. You're going to just have to copy and paste this list somewhere else and manually make the playlist on Spotify :(</p>
     </div>
   );
 }
