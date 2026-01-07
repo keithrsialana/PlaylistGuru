@@ -32,7 +32,7 @@ export default function Playlist() {
       setPlaylist(data.playlist);
     } catch (error) {
       console.error("Error generating playlist:", error);
-      setPlaylist("Error generating playlist. Please try again.");
+
     }
   }
 
@@ -43,17 +43,19 @@ export default function Playlist() {
           ? `Your '` + playlistMood + `' playlist:`
           : "Set your playlist!"}
       </h1>
-      <div>
-        {playlistList.length > 0 ? (
-          <ol>
+      <h3 id="loadingText" hidden>Generating your playlist... Hang on!</h3>
+      <div id="songsText">
+        {playlistList.length < 1 ? "Create your playlist!":
+        (
+          <ol className="playlistList">
             {playlistList.map((song, index) => (
               <li key={index}>{song}</li>
             ))}
           </ol>
-        ) : (
-          ""
         )}
       </div>
+      <h2>Notice</h2>
+      <p>There was a plan to integrate creating a playlist using Spotify, but as of 2024, Spotify has disabled any use of their API unless you're a business that makes money and has a lot of streams, so I'm sorry to the users. You're going to just have to copy and paste this list somewhere else and manually make the playlist on Spotify :(</p>
     </div>
   );
 }

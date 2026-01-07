@@ -14,8 +14,9 @@ export default function MoodForm() {
   return (
     <div>
       <p>So, what kind of playlist are ya vibin' with today?</p>
-      <form onSubmit={handleSubmit}>
+      <form className="playlistForm" onSubmit={handleSubmit}>
         <input
+          className="formInput"
           type="text"
           value={moodText}
           placeholder="Enter your mood here"
@@ -23,7 +24,9 @@ export default function MoodForm() {
         />
 
         <div>
-          <button type="submit">Create Playlist</button>
+          <button className="formButton" type="submit">
+            Create Playlist
+          </button>
         </div>
       </form>
     </div>
