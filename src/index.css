@@ -73,6 +73,7 @@ body {
   }
   .formButton {
     margin-top: 1em;
+    margin-left: 0;
   }
 }
 
