@@ -24,7 +24,7 @@ OPENROUTER_API_TOKEN=insertkeyhere
 2. Use `npm run preview` to run the project
 3. On your web browser, navigate to `http://localhost:4173` to access the website
 ### Accessing the deployed website
-To be added
+[https://playlistguruai.netlify.app/](https://playlistguruai.netlify.app/)
 ## Credits
 Keith Sialana
 ## License
